@@ -1,25 +1,19 @@
 import React from "react";
-import { Card, Carousel, TextStyles } from "@cedcommerce/ounce-ui";
+import { Card, Carousel } from "@cedcommerce/ounce-ui";
 import { bannerImages } from "../../data/Data";
 export const CarouselAdds = () => {
   return (
-    // <Card title="Our Offer Zone">
     <>
-      {/* <div className="story-color-items">
-        <div className="story-color-box"> */}
       <div
         className="story-color-aria story-color-GR65"
         style={{
-          backgroundColor: "#D7EAE2",
+          backgroundColor: "#FBFCFC",
           padding: "20px",
+          textAlign: "center",
         }}
       >
-        <TextStyles fontweight="extraBold" utility="story-color-Name">
-          Our Offer Zone
-        </TextStyles>
+        <h2>Our Offer Zone</h2>
       </div>
-      {/* </div>
-       </div> */}
       <Carousel
         arrowalign="bottomCenter"
         arrows
@@ -46,11 +40,11 @@ export const CarouselAdds = () => {
           },
         ]}
       >
+        {/* carousel images with the help of map function */}
         {bannerImages.map((ele, index) => (
           <Card cardType="Bordered" media={ele} key={index}></Card>
         ))}
       </Carousel>
-      {/* </Card> */}
     </>
   );
 };

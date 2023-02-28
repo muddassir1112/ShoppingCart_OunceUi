@@ -1,46 +1,50 @@
-import {
-  Button,
-  Card,
-  FlexLayout,
-  PageHeader,
-  CartAdded
-} from "@cedcommerce/ounce-ui";
-import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { Button, Card, FlexLayout, PageHeader } from "@cedcommerce/ounce-ui";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import logo from "../../images/logo.png";
-// import { fetchProducts } from "../../redux/AppSlice";
-import { CarouselAdds } from "../carousel/CarouselAdds";
 
 export const NavBar = () => {
- 
+  const navigate = useNavigate();
+  const data = useSelector((state) => state.eCommerceApp);
+
   return (
     <>
       <Card cardType="Bordered">
         <PageHeader
           action={
             <FlexLayout spacing="loose" wrap="noWrap">
-              <Button onClick={function noRefCheck() {}} type="Outlined">
-                Home
+              <Button
+                onClick={function noRefCheck() {
+                  navigate("/");
+                }}
+                type="Outlined"
+              >
+                <i className="fas fa-home"></i> Home
               </Button>
               <Button onClick={function noRefCheck() {}} type="Outlined">
-                About Us
+                <i className="fas fa-info"></i> About Us
               </Button>
               <Button onClick={function noRefCheck() {}} type="Outlined">
-                Services
+                <i className="fab fa-servicestack"></i> Services
               </Button>
               <Button onClick={function noRefCheck() {}} type="Outlined">
-                Contact Us
+                <i className="fas fa-mobile"></i> Contact Us
               </Button>
-              <Button onClick={function noRefCheck() {}} type="Outlined">
-                Cart<i className='fas fa-shopping-cart'></i>
-                {/* <CartAdded size="24" color="#1c2433" /> */}
+              <Button
+                onClick={function noRefCheck() {
+                  navigate("/cart");
+                }}
+                type="Outlined"
+              >
+                <i className="fas fa-shopping-cart"></i> Cart
+                {data.cartArray.length}
               </Button>
             </FlexLayout>
           }
           title={<img src={logo} alt="..." />}
         />
       </Card>
-      <CarouselAdds />
     </>
   );
 };

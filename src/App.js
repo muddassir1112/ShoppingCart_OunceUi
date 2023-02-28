@@ -7,14 +7,14 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { NavBar } from "./component/navbar/NavBar";
-import { Product } from "./component/landing_page/Product";
+import { Product } from "./component/landing_page/Products";
 import { Cart } from "./component/cart/Cart";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { Footer } from "./component/footer/Footer";
 export const ProductContext = createContext();
 function App() {
-  // const [Products, setProducts] = useState([]);
   const AppLayout = () => (
     <>
       <NavBar />
@@ -32,9 +32,8 @@ function App() {
 
   return (
     <Provider store={store}>
-      {/* <ProductContext.Provider value={{ Products, setProducts }}> */}
-        <RouterProvider router={router} />
-      {/* </ProductContext.Provider> */}
+      <RouterProvider router={router} />
+      <Footer/>
     </Provider>
   );
 }
